@@ -1,0 +1,74 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "position": 1,
+    "filepath": "src/pages/slides/ToysVillageCover.tsx",
+    "title": "Toy’s Village",
+    "description": "Toy’s Village",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000002",
+    "position": 2,
+    "filepath": "src/pages/slides/WhyPlayful.tsx",
+    "title": "Why make tidy-up playful?",
+    "description": "Why make tidy-up playful?",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000003",
+    "position": 3,
+    "filepath": "src/pages/slides/VillageMetaphor.tsx",
+    "title": "A village of little homes",
+    "description": "A village of little homes",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000004",
+    "position": 4,
+    "filepath": "src/pages/slides/TwoGames.tsx",
+    "title": "Two games, one physical tidy-up",
+    "description": "Two games, one physical tidy-up",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000005",
+    "position": 5,
+    "filepath": "src/pages/slides/PrototypeToday.tsx",
+    "title": "What works in the prototype today",
+    "description": "What works in the prototype today",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000006",
+    "position": 6,
+    "filepath": "src/pages/slides/OpenQuestions.tsx",
+    "title": "What is still unproven?",
+    "description": "What is still unproven?",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000007",
+    "position": 7,
+    "filepath": "src/pages/slides/MeasureExperience.tsx",
+    "title": "Measure the experience—not assumptions",
+    "description": "Measure the experience—not assumptions",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000008",
+    "position": 8,
+    "filepath": "src/pages/slides/SensingOptions.tsx",
+    "title": "Choose the sensing approach",
+    "description": "Choose the sensing approach",
+    "speakerNotes": ""
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000009",
+    "position": 9,
+    "filepath": "src/pages/slides/ValidationRoadmap.tsx",
+    "title": "From prototype to a go/no-go",
+    "description": "From prototype to a go/no-go",
+    "speakerNotes": ""
+  }
+]

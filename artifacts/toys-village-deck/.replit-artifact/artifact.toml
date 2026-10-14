@@ -1,0 +1,28 @@
+kind = "slides"
+previewPath = "/toys-village-deck/"
+title = "Toy’s Village — Project Overview"
+description = "A nine-slide overview of the Toy’s Village concept, supervised mobile prototype, simulated sensing, open validation questions, and proposed pilot plan."
+version = "1.0.0"
+id = "artifacts/toys-village-deck"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/toys-village-deck/" ]
+localPort = 25399
+
+[services.development]
+run = "pnpm --filter @workspace/toys-village-deck run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/toys-village-deck", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/toys-village-deck/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25399"
+BASE_PATH = "/toys-village-deck/"
