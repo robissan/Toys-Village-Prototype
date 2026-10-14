@@ -1,10 +1,12 @@
-# [Project name]
+# Toy’s Village
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A supervised mobile prototype that turns toy tidy-up into two audio-led village games: Time Game and Color Game.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/toys-village run dev` — run the Expo mobile prototype workflow
+- `pnpm --filter @workspace/toys-village run typecheck` — typecheck the mobile app
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -30,7 +32,10 @@ _Populate as you build — non-obvious choices a reader couldn't infer from the 
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Time Game: sample toy returns add musical layers and a gentle tempo increase.
+- Color Game: spoken color prompts and simulated scans accept matching preset toy colors.
+- Toy placement and scanning are simulated; no camera, box sensor, or session-data collection is configured.
+- Keep adult-started, supervised play and the prototype's sensing limitations explicit.
 
 ## User preferences
 
