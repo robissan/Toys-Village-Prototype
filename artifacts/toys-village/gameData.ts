@@ -73,3 +73,7 @@ export const TOY_RESIDENTS: ToyResident[] = [
     instrumentLabel: 'toy piano',
   },
 ];
+
+export function labelForColor(color: ToyColor): string {
+  return TOY_RESIDENTS.find((toy) => toy.color === color)?.colorLabel ?? 'matching';
+}
