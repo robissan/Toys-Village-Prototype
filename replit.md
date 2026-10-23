@@ -4,38 +4,45 @@ A supervised mobile prototype that turns toy tidy-up into two audio-led village 
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm --filter @workspace/toys-village run dev` — run the Expo mobile prototype workflow
+- `pnpm --filter @workspace/toys-village run dev` — run the Expo prototype
 - `pnpm --filter @workspace/toys-village run typecheck` — typecheck the mobile app
-- `pnpm run typecheck` — full typecheck across all packages
+- `pnpm run typecheck` — full typecheck across packages
+- `pnpm run test` — rule, voice, session, and sensor tests
 - `pnpm run build` — typecheck + build all packages
+- `pnpm --filter @workspace/api-server run dev` — optional health-check API (port 5000). The game does not call it.
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `DATABASE_URL` is not required to run the app. It is only for the optional `@workspace/db` package, which play does not use.
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
+- API: Express 5, health check only
+- DB: optional PostgreSQL + Drizzle, unused by the game
 - Validation: Zod (`zod/v4`), `drizzle-zod`
 - API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Mobile: Expo, React 19
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/toys-village` — the playable app
+- `artifacts/toys-village/gameData.ts` — the six residents
+- `artifacts/toys-village-deck` — product claims
+- `lib/api-spec/openapi.yaml` — health check only
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Session totals stay on the device for the grown-up. No accounts, no session API, and no populated database schema.
+- Tempo, placement, scan judgment, and the next color target are pure functions in `artifacts/toys-village/game/rules.ts`, with node tests.
+- Screens send `SimulatedSensor` placement and scan events. Camera and location packages are not installed. See `artifacts/toys-village/docs/sensing-week-one.md`.
+- Speech and music are separate. Steady tempo locks playback at 1. The rising curve stays in `tempoFor`. Speech uses a system voice, with a lower pitch and a near-natural rate. No paid TTS.
+- Routes are `app/index.tsx`, `app/grown-up.tsx`, `app/play/time.tsx`, and `app/play/color.tsx`. Session state sits above the stack. Grown-up controls are press-and-hold.
 
 ## Product
 
-- Time Game: sample toy returns add musical layers and a gentle tempo increase.
-- Color Game: spoken color prompts and simulated scans accept matching preset toy colors.
-- Toy placement and scanning are simulated; no camera, box sensor, or session-data collection is configured.
-- Keep adult-started, supervised play and the prototype's sensing limitations explicit.
+- Time Game: a returning toy adds an instrument and a gentle tempo increase. Taking a toy back out does not undo the song.
+- Color Game: a spoken color and one large swatch. The next target is random among toys still out. Color names are not printed on the child screen.
+- Toy placement and scanning are simulated. No camera or box sensor is connected.
+- A grown-up starts the session and can record prompts, mismatches, and toys accepted. That record stays on the device.
 
 ## User preferences
 
@@ -43,7 +50,10 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Grown-up controls, including start and finish, open on press-and-hold.
+- Do not require `DATABASE_URL` to boot or understand the app.
+- Do not add a camera scan unless `artifacts/toys-village/docs/sensing-week-one.md` is changed to choose one. It currently does not.
+- CI runs `pnpm run typecheck` and `pnpm run test` on Node 22.
 
 ## Pointers
 

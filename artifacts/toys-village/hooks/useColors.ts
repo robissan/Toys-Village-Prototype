@@ -13,6 +13,8 @@ import colors from '@/constants/colors';
  * key, this hook will automatically switch palettes based on the
  * device's appearance setting.
  */
+export type ColorTokens = ReturnType<typeof useColors>;
+
 export function useColors() {
   const scheme = useColorScheme();
   const palette =

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "hello": "tsx ./src/hello.ts",
+    "test": "tsx --test ../artifacts/toys-village/game/rules.test.ts ../artifacts/toys-village/game/voice.test.ts ../artifacts/toys-village/game/session.test.ts ../artifacts/toys-village/game/sensor.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {

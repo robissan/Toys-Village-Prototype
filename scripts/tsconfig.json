@@ -2,8 +2,12 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "..",
     "types": ["node"]
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts",
+    "../artifacts/toys-village/game/**/*.ts",
+    "../artifacts/toys-village/gameData.ts"
+  ]
 }
